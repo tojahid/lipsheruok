@@ -1,0 +1,58 @@
+<html>
+
+    <head>
+        <title>Home | Welcome</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='home_bn.js') }}"  ></script>
+        <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            .input-form{
+                width: 400px;
+            }
+            .main-container{
+                margin-top: 100px;
+            }
+            .analysis-btn{
+
+                width: 100px;
+                padding: 10px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+
+
+           <div class="main-container">
+              <center><h2 class="mb-3">Lips Color Changer | Welcome </h2></center>
+
+                <br> <br>
+              <center>
+
+                  <form class="input-form" method="POST" action="" enctype="multipart/form-data">
+
+                    <input class="form-control" type="file" name="file">
+                    <input class="form-control mt-3" placeholder="Type HexCode (ex: 0fffff)" type="text" name="hexcode" value="">
+                    <p><input  class="btn btn-success mt-3" type="submit" value="Submit"></p>
+
+                  </form>
+                  <hr>
+
+                  {% for file in files %}
+                    <img src="{{ url_for('upload', filename=file) }}" style="width: 256px">
+                  {% endfor %}
+
+                  <br> 
+                  <hr>
+
+
+                  <button class="btn btn-success mt-3" onclick="document.location='http://localhost:5000/lips'">Analyze lips</button>
+                  <br>
+
+
+
+              </center>
+
+            </div>
+    </body>
