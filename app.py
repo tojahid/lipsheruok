@@ -37,8 +37,9 @@ def validate_image(stream):
 
 @app.route('/')
 def index():
-    files = os.listdir(app.config['UPLOAD_PATH'])
-    return render_template('index.html', files=files)
+    #files = os.listdir(app.config['UPLOAD_PATH'])
+    #return render_template('index.html', files=files)
+    return render_template("index.html")
 
 @app.route('/', methods=['POST'])
 def upload_files():
@@ -90,4 +91,5 @@ def lips():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
