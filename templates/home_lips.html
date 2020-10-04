@@ -1,0 +1,123 @@
+<html>
+
+    <head>
+        <title>Home | Welcome</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='home_bn.js') }}"  ></script>
+        <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            .input-form{
+                width: 400px;
+            }
+            .main-container{
+                margin-top: 100px;
+            }
+            .analysis-btn{
+
+                width: 100px;
+                padding: 10px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            /* The grid: Four equal columns that floats next to each other */
+            .column {
+            width: 25%;
+            padding: 10px;
+            }
+
+            /* Style the images inside the grid */
+            .column img {
+            opacity: 0.8; 
+            cursor: pointer; 
+            }
+
+            .column img:hover {
+            opacity: 1;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+
+            /* The expanding image container */
+            .container {
+            position: relative;
+            display: none;
+            }
+
+            /* Expanding image text */
+            #imgtext {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 20px;
+            }
+
+            /* Closable button inside the expanded image */
+            .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+
+
+           <div class="main-container">
+              <center><h2 class="mb-3">Lips Color Changer | Welcome </h2></center>
+
+                <br> <br>
+              <center>
+
+
+                    <!-- The four columns -->
+                        <div class="row">
+                            <div class="column">
+                            <img src="{{ user_image }}"  alt="Look At Lips" style="width:100%" onclick="myFunction(this);">
+                            <p>Click over image to Enlarge View</p>
+                            </div>
+                        
+                        </div>
+                        
+                        <div class="container">
+                            <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                            <img id="expandedImg" style="width:100%">
+                            <div id="imgtext"></div>
+                        </div>
+                        
+                        
+  
+                  
+
+
+                <br> 
+                <hr>
+
+                <button class="btn btn-success mt-3" onclick="document.location='http://localhost:5000/'">Back To Home</button>
+                <br>
+
+              </center>
+
+
+
+
+            </div>
+
+            <script>
+                function myFunction(imgs) {
+                    var expandImg = document.getElementById("expandedImg");
+                    var imgText = document.getElementById("imgtext");
+                    expandImg.src = imgs.src;
+                    imgText.innerHTML = imgs.alt;
+                    expandImg.parentElement.style.display = "block";
+                }
+                </script>
+    </body>

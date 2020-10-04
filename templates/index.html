@@ -1,8 +1,8 @@
 <html>
 
     <head>
-        <title>Preneurlab | Flask</title>
-        <script type="text/javascript" src="{{ url_for('static', filename='home_en.js') }}"  ></script>
+        <title>Home | Welcome</title>
+        <script type="text/javascript" src="{{ url_for('static', filename='home_bn.js') }}"  ></script>
         <link rel="stylesheet" href="../static/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <style>
@@ -25,37 +25,34 @@
 
 
            <div class="main-container">
-              <center><h2 class="mb-3"> Welcome To Preneurlab!</h2></center>
+              <center><h2 class="mb-3">Lips Color Changer | Welcome </h2></center>
 
-              <br> <br>
-                <center>
+                <br> <br>
+              <center>
 
+                  <form class="input-form" method="POST" action="" enctype="multipart/form-data">
 
-                    <p><b>Choose Chatbot Language.</b></p>
-                    <button class="btn btn-success mt-3" onclick="document.location='https://cloud7.preneurlab.com/bn'">Try Bangla Chatbot</button>
-                    <br>
-                    <button class="btn btn-success mt-3" onclick="document.location='https://cloud7.preneurlab.com/en'">Try English Chatbot</button>
-                    
-                    <br> <br>
-                    <p><b> Recommendation Engine</b></p>
-                    <button class="btn btn-success mt-3" onclick="document.location='https://cloud7.preneurlab.com/recommendation'">Try Movie Recommendation</button>
-                    <button class="btn btn-success mt-3" onclick="document.location='https://cloud7.preneurlab.com/robi_recommendation'">Try Telco Recommendation</button>
-                   
-                </center>
+                    <input class="form-control" type="file" name="file">
+                    <input class="form-control mt-3" placeholder="Type HexCode (ex: 0fffff)" type="text" name="hexcode" value="">
+                    <p><input  class="btn btn-success mt-3" type="submit" value="Submit"></p>
 
-               
+                  </form>
+                  <hr>
 
-           </div>
+                  {% for file in files %}
+                    <img src="{{ url_for('upload', filename=file) }}" style="width: 256px">
+                  {% endfor %}
 
+                  <br> 
+                  <hr>
 
 
+                  <button class="btn btn-success mt-3" onclick="document.location='http://localhost:5000/lips'">Analyze lips</button>
+                  <br>
 
 
+
+              </center>
+
+            </div>
     </body>
-
-</html>
-
-
-
-
-
